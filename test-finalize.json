@@ -1,9 +1,0 @@
-{
-  "result": {
-    "finding_id": "finding-1",
-    "outcomes": [
-      { "checkpoint_id": 1, "status": "ok", "observation": "TEST RESULT" }
-    ],
-    "timestamp": "2026-04-18T11:24:29.381Z"
-  }
-}
