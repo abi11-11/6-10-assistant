@@ -15,3 +15,20 @@ yarn-error.log*
 *.njsproj
 *.sln
 *.sw?
+
+# AI & Assistant Metadata
+.agents/
+.agent/
+.cline/
+.clinerules
+.cursor/
+.qodo/
+.windsurf/
+.gemini/
+_bmad/
+bmad-output/
+6-10_prd-validation-report.md
+implementation_plan.md
+walkthrough.md
+task.md
+/6-10-assistant/6-10-assistant-ui/.vite/
