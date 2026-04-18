@@ -1,0 +1,50 @@
+{
+  "scenario": "overnight-incidents-2024-03-15",
+  "timezone": "UTC",
+  "incident_window": {
+    "start": "2024-03-15T20:00:00Z",
+    "end": "2024-03-16T06:10:00Z"
+  },
+  "raw_events": [
+    {
+      "event_id": "evt-001",
+      "type": "fence_breach",
+      "zone": "perimeter-north",
+      "timestamp": "2024-03-15T23:45:00Z",
+      "source": "fence_sensor",
+      "observation": "Fence vibration detected near Gate 3, duration 15 seconds"
+    },
+    {
+      "event_id": "evt-002",
+      "type": "camera_malfunction",
+      "zone": "block-c",
+      "timestamp": "2024-03-16T00:12:00Z",
+      "source": "camera",
+      "observation": "Rapid pan movement detected, possible equipment malfunction"
+    },
+    {
+      "event_id": "evt-003",
+      "type": "vehicle_detection",
+      "zone": "storage-yard-south",
+      "timestamp": "2024-03-16T02:30:00Z",
+      "source": "drone_patrol",
+      "observation": "Ground disturbance patterns near storage yard, vehicle-width track"
+    },
+    {
+      "event_id": "evt-004",
+      "type": "badge_reader_anomaly",
+      "zone": "admin-building",
+      "timestamp": "2024-03-16T03:15:00Z",
+      "source": "badge_reader",
+      "observation": "Three failed badge swipes at access point, door forced at 03:15"
+    },
+    {
+      "event_id": "evt-005",
+      "type": "power_spike",
+      "zone": "data-center",
+      "timestamp": "2024-03-16T04:00:00Z",
+      "source": "monitoring_system",
+      "observation": "Unexpected power draw spike, correlates with network latency"
+    }
+  ]
+}
