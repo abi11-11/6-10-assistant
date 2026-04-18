@@ -17,18 +17,22 @@ yarn-error.log*
 *.sw?
 
 # AI & Assistant Metadata
-.agents/
+ .agents/
 .agent/
 .cline/
-.clinerules
+.clinerules/
 .cursor/
 .qodo/
 .windsurf/
 .gemini/
+.github/skills/
 _bmad/
 bmad-output/
 6-10_prd-validation-report.md
 implementation_plan.md
 walkthrough.md
 task.md
-/6-10-assistant/6-10-assistant-ui/.vite/
+ui-prd-stitch.md
+sky_ui_demo/stitch_prd_interface_design/
+Assignment_Founding_Full_Stack_Engineer_Aerial_Agents.pdf
+/6-10-assistant/6-10-assistant-ui/.vite/ 
