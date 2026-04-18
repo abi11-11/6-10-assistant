@@ -62,6 +62,3 @@ Industrial facilities operate 24/7, generating a flood of signals overnight. By 
 *   `6-10-assistant-ui/`: React frontend application.
 *   `6-10-assistant-api/`: Fastify backend service.
 *   `6-10_prd.txt`: The original Product Requirements Document.
-
-## ⚖️ License
-MIT License - Copyright (c) 2026
