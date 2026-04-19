@@ -1,0 +1,73 @@
+version: '3.8'
+
+services:
+  # PostgreSQL Event Store
+  postgres:
+    image: postgres:16-alpine
+    container_name: sky-postgres
+    environment:
+      POSTGRES_DB: sky_assistant
+      POSTGRES_USER: sky_user
+      POSTGRES_PASSWORD: ${DB_PASSWORD:-sky_password_dev}
+      POSTGRES_INITDB_ARGS: "--encoding=UTF8 --locale=C"
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+      - ./6-10-assistant-api/migrations:/docker-entrypoint-initdb.d
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U sky_user -d sky_assistant"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    networks:
+      - sky-network
+    restart: unless-stopped
+
+  # Backend API
+  api:
+    build:
+      context: .
+      dockerfile: Dockerfile.api
+    container_name: sky-api
+    environment:
+      NODE_ENV: ${NODE_ENV:-development}
+      PORT: 3000
+      DATABASE_URL: postgresql://sky_user:${DB_PASSWORD:-sky_password_dev}@postgres:5432/sky_assistant
+      LOG_LEVEL: ${LOG_LEVEL:-info}
+    ports:
+      - "3000:3000"
+    depends_on:
+      postgres:
+        condition: service_healthy
+    volumes:
+      - ./6-10-assistant-api/src:/app/src
+      - /app/node_modules
+    networks:
+      - sky-network
+    restart: unless-stopped
+    command: npm run dev
+
+  # Frontend UI
+  ui:
+    build:
+      context: .
+      dockerfile: Dockerfile.ui
+    container_name: sky-ui
+    ports:
+      - "80:80"
+    depends_on:
+      - api
+    networks:
+      - sky-network
+    restart: unless-stopped
+    environment:
+      - VITE_API_URL=http://localhost:3000
+
+volumes:
+  postgres_data:
+    driver: local
+
+networks:
+  sky-network:
+    driver: bridge
