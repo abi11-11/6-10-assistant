@@ -37,10 +37,10 @@ export function DashboardPage() {
       {/* Primary Metrics Grid */}
       <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: 20, marginBottom: 48, position: 'relative', zIndex: 1 }}>
         {[
-          { label: 'ACTIVE_INCIDENTS', value: SEEDED_FINDINGS.length, color: 'var(--primary)', icon: 'sensors', trend: '+2' },
-          { label: 'CRITICAL_ALERTS', value: criticalCount, color: 'var(--error)', icon: 'warning', trend: 'STABLE' },
-          { label: 'INTEL_READY', value: approvedCount, color: 'var(--tertiary)', icon: 'verified', trend: 'HIGH' },
-          { label: 'DRONE_FLEET', value: '4/4', color: 'var(--secondary)', icon: 'flight', trend: 'READY' },
+          { label: 'ACTIVE INCIDENTS', value: SEEDED_FINDINGS.length, color: 'var(--primary)', icon: 'sensors', trend: '+2' },
+          { label: 'CRITICAL ALERTS', value: criticalCount, color: 'var(--error)', icon: 'warning', trend: 'STABLE' },
+          { label: 'INTEL READY', value: approvedCount, color: 'var(--tertiary)', icon: 'verified', trend: 'HIGH' },
+          { label: 'DRONE FLEET', value: '4/4', color: 'var(--secondary)', icon: 'flight', trend: 'READY' },
         ].map(stat => (
           <div key={stat.label} className="layer-1 ghost-border" style={{ padding: '24px 28px', borderRadius: 4, position: 'relative', overflow: 'hidden' }}>
             <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: 16 }}>
